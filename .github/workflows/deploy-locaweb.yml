@@ -14,22 +14,22 @@ jobs:
       - name: Verificar credenciais
         id: creds
         env:
-          FTP_SERVER: ${{ secrets.LOCAWEB_FTP_SERVER }}
+          FTP_HOST: ${{ secrets.LOCAWEB_FTP_HOST }}
           FTP_USERNAME: ${{ secrets.LOCAWEB_FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.LOCAWEB_FTP_PASSWORD }}
         shell: bash
         run: |
-          if [ -n "$FTP_SERVER" ] && [ -n "$FTP_USERNAME" ] && [ -n "$FTP_PASSWORD" ]; then
+          if [ -n "$FTP_HOST" ] && [ -n "$FTP_USERNAME" ] && [ -n "$FTP_PASSWORD" ]; then
             echo "ok=true" >> "$GITHUB_OUTPUT"
           else
-            echo "::warning::Configure LOCAWEB_FTP_SERVER, LOCAWEB_FTP_USERNAME e LOCAWEB_FTP_PASSWORD em Settings > Secrets and variables > Actions."
+            echo "::warning::Configure LOCAWEB_FTP_HOST, LOCAWEB_FTP_USERNAME e LOCAWEB_FTP_PASSWORD em Settings > Secrets and variables > Actions."
             echo "ok=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Publicar na Locaweb
         if: steps.creds.outputs.ok == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
-          server: ${{ secrets.LOCAWEB_FTP_SERVER }}
+          server: ${{ secrets.LOCAWEB_FTP_HOST }}
           username: ${{ secrets.LOCAWEB_FTP_USERNAME }}
           password: ${{ secrets.LOCAWEB_FTP_PASSWORD }}
           protocol: ftps
