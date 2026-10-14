@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.LOCAWEB_FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./
-          server-dir: /public_html/parceiros/
+          server-dir: /public_html/parceiro/
           exclude: |
             **/.git*
             **/.git*/**
