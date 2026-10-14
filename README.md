@@ -13,4 +13,4 @@ Hospedagem planejada: https://parceiro.compassrosesystems.com.br
 
 ## Deploy
 
-GitHub Actions envia os arquivos publicados à pasta `/public_html/parceiros/` via FTPS. Definir no repositório os Secrets: `LOCAWEB_FTP_SERVER`, `LOCAWEB_FTP_USERNAME`, `LOCAWEB_FTP_PASSWORD`. Ajustar `server-dir` caso a conta FTP já abra em `public_html`. Conferir o passo **Publicar na Locaweb** efetivamente executado; o workflow pode ter sucesso mesmo se a publicação foi pulada por falta de credenciais.
+GitHub Actions envia os arquivos publicados à pasta `/public_html/parceiro/` via FTPS. Definir no repositório os Secrets: `LOCAWEB_FTP_SERVER`, `LOCAWEB_FTP_USERNAME`, `LOCAWEB_FTP_PASSWORD`. Ajustar `server-dir` caso a conta FTP já abra em `public_html`. Conferir o passo **Publicar na Locaweb** efetivamente executado; o workflow pode ter sucesso mesmo se a publicação foi pulada por falta de credenciais.
